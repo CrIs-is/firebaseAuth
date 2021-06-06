@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "loginFirebase"
+  "defaultProject": "loginFirebase",
+  "cli": {
+    "analytics": false
+  }
 }
