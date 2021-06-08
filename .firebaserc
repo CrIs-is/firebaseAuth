@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "chatfire-67b19": {
+      "hosting": {
+        "loginFirebase": [
+          "chatfire-67b19"
+        ]
+      }
+    }
+  }
+}

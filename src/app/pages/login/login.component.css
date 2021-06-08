@@ -1,0 +1,33 @@
+
+ 
+form mat-form-field,mat-checkbox{
+    width: 90%;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+
+ 
+h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.button-login{
+    width: 100%;
+}
+
+mat-grid-tile button{
+    margin: 20px;
+}
+
+mat-grid-tile button i{
+    font-size: 18px;
+}
+
+.crear-cuenta{
+    text-align: center;
+}
+
+ 

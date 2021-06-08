@@ -1,0 +1,31 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.card-form{
+    height: 100vh;
+    position: relative;
+    background-color: #fff;
+    padding-bottom: 100px;
+ }
+ .contenido-form{
+     padding-top: 50px;
+     padding-bottom: 90px;
+ }
+ 
+@media (max-width: 600px) {
+    .card-form {
+        width: 100%;
+    }
+  }
+
+@media (min-width: 600px) {
+    .card-form {
+        width: 100%;
+    }
+  }
+
+  @media (min-width: 805px) {
+    .card-form {
+      width: 500px;
+    }
+  }

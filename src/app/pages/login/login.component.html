@@ -1,58 +1,74 @@
-<!-- <div class="limiter animated fadeInLeft">
-    <div class="container-login100">
-        <div class="wrap-login100 p-t-50 p-b-90">
-            <form #f="ngForm" class="login100-form validate-form flex-sb flex-w" (ngSubmit)="loginUser(f)">
+<div class="card-form">
+    
+    <div class="contenido-form">
 
-                <span class="login100-form-title p-b-51">
-                    Login
-                </span>
+  
+        <h1>Iniciar sesion</h1>
+        <mat-card-content>
 
-               <span class="text-danger">El correo es obligatorio</span>
-                <div class="wrap-input100 m-b-16">
-                    <input class="input100"
-                           type="email"
-                           name="username"
-                           email
-                           required
-                           placeholder="Email">
-
-                    <span class="focus-input100"></span>
-                </div>
-
-                 <span class="text-danger">La contraseña debe de ser más de 6 letras</span>
-                <div class="wrap-input100 m-b-16" data-validate = "Password is required">
-                    <input class="input100"
-                           type="password"
-                           name="pass"
-                           minlength="6"
-                           required
-                           placeholder="Password">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="flex-sb-m w-full p-t-3 p-b-24">
-                    <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                        <label class="label-checkbox100" for="ckb1">
-                            Recordar mi usuario
-                        </label>
-                    </div>
+            <div class="form">
+                <form>
 
                     <div>
-                        <a routerLink="/registro" class="txt1">
-                            ¿No tienes cuenta?
-                        </a>
+                        <mat-form-field appearance="legacy">
+                          <mat-label>Username o E-mail</mat-label>
+                          <input matInput placeholder="Placeholder">
+                          <mat-icon matSuffix>email</mat-icon>
+                         </mat-form-field>
                     </div>
-                </div>
+    
+                    <div>
+                        <mat-form-field appearance="legacy">
+                          <mat-label>Contraseña</mat-label>
+                          <input matInput placeholder="Placeholder">
+                          <mat-icon matSuffix>lock</mat-icon>
+                         </mat-form-field>
+                    </div>
+    
+                </form>
+            </div>
+        
+            <div>
+                <mat-checkbox color="primary">Recordar usuario</mat-checkbox>
+            </div>
 
-                <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn" type="submit">
-                        Ingresar
+        </mat-card-content>
+
+        <mat-card-actions>
+            <mat-grid-list cols="4" rowHeight="50px">
+               
+                <mat-grid-tile colspan="4" rowspan="2">
+                    <button class="button-login" mat-raised-button color="primary">Ingresar</button>
+                </mat-grid-tile>
+                 
+            </mat-grid-list>
+
+            <div class="crear-cuenta">
+                <br>
+                <p>
+                    ¿No tienes cuenta? <br> 
+                    <a routerLink="/auth/registro">crear un cuenta</a>
+                </p>
+                 
+            </div>
+           
+
+            <mat-grid-list cols="1" rowHeight="100px">
+                 <mat-grid-tile>
+                    <button mat-fab style="background-color: #4078c0;color: #fff;">
+                        <i class="fab fa-facebook-f"></i>
                     </button>
-                </div>
+                    <button mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button mat-fab style="background-color: #333;color: #fff;"  aria-label="Example icon button with a delete icon">
+                        <i class="fab fa-github"></i>
+                    </button>
+                 </mat-grid-tile>
+             </mat-grid-list>
 
-            </form>
-        </div>
-    </div>
+        </mat-card-actions>
+       </div>
 </div>
- -->
+
+ 

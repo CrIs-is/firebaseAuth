@@ -1,0 +1,35 @@
+.card-login{
+    height: 100%;
+    position: relative;
+     background-color: #fff;
+  }
+ 
+form mat-form-field,mat-checkbox{
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+
+
+h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.button-login{
+    width: 100%;
+}
+
+mat-grid-tile button{
+    margin: 20px;
+}
+
+mat-grid-tile button i{
+    font-size: 18px;
+}
+
+.crear-cuenta{
+    text-align: center;
+}
