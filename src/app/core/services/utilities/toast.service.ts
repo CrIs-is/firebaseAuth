@@ -8,7 +8,7 @@ export class ToastService {
 
   constructor(private service: SnotifyService) { }
 
-  showToast(tipo: SnotifyType,titulo:string, message?:string,duracion?: number):void{
+  showToast(tipo: SnotifyType,titulo:string, message?:string,duracion?: number,positionP:SnotifyPosition=SnotifyPosition.centerTop):void{
     this.service.clear();
     this.service.create(
       {
@@ -16,7 +16,7 @@ export class ToastService {
         body:message,
         config:{
           type:tipo,
-          position:SnotifyPosition.rightTop,
+          position:positionP,
           timeout: duracion,
           titleMaxLength:200,
           bodyMaxLength:200,

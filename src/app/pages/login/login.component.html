@@ -7,38 +7,53 @@
         <mat-card-content>
 
             <div class="form">
-                <form>
+                <form [formGroup]="formulario">
 
                     <div>
                         <mat-form-field appearance="legacy">
-                          <mat-label>Username o E-mail</mat-label>
-                          <input matInput placeholder="Placeholder">
+                          <mat-label>E-mail</mat-label>
+                          <input type="email" matInput placeholder="Ingrese su email" formControlName="email">
                           <mat-icon matSuffix>email</mat-icon>
+                          <mat-error *ngIf="formulario.controls.email.hasError('required')">
+                            El Email es  <strong>Obligatorio</strong>
+                          </mat-error>
+                          <mat-error *ngIf="formulario.controls.email.hasError('email')">
+                            El patrón del email es <strong>invalido</strong>
+                          </mat-error>
                          </mat-form-field>
                     </div>
     
                     <div>
                         <mat-form-field appearance="legacy">
                           <mat-label>Contraseña</mat-label>
-                          <input matInput placeholder="Placeholder">
+                          <input type="password" matInput placeholder="Ingrese su contraseña" formControlName="password">
                           <mat-icon matSuffix>lock</mat-icon>
+                          <mat-error *ngIf="formulario.controls.password.hasError('required')">
+                            La Contraseña es  <strong>Obligatoria</strong>
+                          </mat-error>
+                          <mat-error *ngIf="formulario.controls.password.hasError('minlength')">
+                            La contraseña debe tener minimo <strong>7 caracteres</strong>
+                          </mat-error>
                          </mat-form-field>
                     </div>
     
                 </form>
             </div>
         
+   
+
+        </mat-card-content>
+        
+        <br>
+
+        <mat-card-actions>
             <div>
                 <mat-checkbox color="primary">Recordar usuario</mat-checkbox>
             </div>
-
-        </mat-card-content>
-
-        <mat-card-actions>
             <mat-grid-list cols="4" rowHeight="50px">
                
                 <mat-grid-tile colspan="4" rowspan="2">
-                    <button (click)="loginUser()" class="button-login" mat-raised-button color="primary">Ingresar</button>
+                    <button (click)="loginUser()" class="button-login" mat-raised-button color="primary" [disabled]="formulario.invalid">Ingresar</button>
                 </mat-grid-tile>
                  
             </mat-grid-list>
@@ -46,21 +61,21 @@
             <div class="crear-cuenta">
                 <br>
                 <p>
-                    ¿No tienes cuenta? <br> 
-                    <a routerLink="/auth/registro">crear un cuenta</a>
+                    <button (click)="registro()" mat-raised-button >Crear un cuenta</button>
                 </p>
                  
             </div>
            
 
-            <mat-grid-list cols="1" rowHeight="100px">
-                 <mat-grid-tile>
+            <mat-grid-list cols="12" rowHeight="100px">
+                 <mat-grid-tile colspan="12">
                     <button mat-fab style="background-color: #4078c0;color: #fff;">
                         <i class="fab fa-facebook-f"></i>
                     </button>
-                    <button mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                     <button mat-fab color="warn" aria-label="Example icon button with a delete icon">
                         <i class="fab fa-google"></i>
                     </button>
+                     
                     <button mat-fab style="background-color: #333;color: #fff;"  aria-label="Example icon button with a delete icon">
                         <i class="fab fa-github"></i>
                     </button>

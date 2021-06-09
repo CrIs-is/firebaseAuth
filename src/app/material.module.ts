@@ -8,7 +8,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
-import {LayoutModule} from '@angular/cdk/layout';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 const COMPONENTS = [
   MatCardModule,
@@ -18,7 +24,13 @@ const COMPONENTS = [
   MatIconModule,
   MatGridListModule,
   MatCheckboxModule,
-  LayoutModule
+  MatDialogModule,
+  MatStepperModule,
+  MatDividerModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSelectModule,
+  MatProgressBarModule
 ]
 
 @NgModule({

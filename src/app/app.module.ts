@@ -10,6 +10,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { environment } from 'src/environments/environment';
+import {  MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,11 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     SnotifyModule,
-
+    MatProgressBarModule
   ],
   providers: [
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
-    SnotifyService
+    SnotifyService,
   ],
   bootstrap: [AppComponent]
 })

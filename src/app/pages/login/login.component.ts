@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Usuario } from 'src/app/core/models/usuario';
-import { AuthService } from 'src/app/core/services/auth.service';
-import { ToastService } from 'src/app/core/services/toast.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { LoadingService } from 'src/app/core/services/utilities/loading.service';
+import { ToastService } from 'src/app/core/services/utilities/toast.service';
+import { RegistroComponent } from '../registro/registro.component';
 
 @Component({
   selector: 'app-login',
@@ -11,22 +14,43 @@ import { ToastService } from 'src/app/core/services/toast.service';
 })
 export class LoginComponent implements OnInit {
 
+  formulario: FormGroup;
+  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$";
+
   usuario: Usuario = new Usuario();
-  constructor(private authService: AuthService,private alertService: ToastService) { }
+  constructor(private authService: AuthService,private alertService: ToastService,public dialog: MatDialog,
+    private loadingService:LoadingService) { }
 
   ngOnInit() {
-    this.usuario.email = 'cris@gmail.com';
-    this.usuario.password = 'cris.com';
+    this.createForm();
+  }
+
+  createForm(){
+    this.formulario = new FormGroup({
+      email: new FormControl('',[Validators.required,Validators.minLength(7),Validators.email]),
+      password: new FormControl('',[Validators.required,Validators.minLength(7)])
+    })
   }
 
   loginUser(){
-    this.authService.login(this.usuario).then((res)=>{
+    this.loadingService.showLoading();
+    this.authService.login(this.formulario.value).then((res)=>{
       console.log(res);
+      this.loadingService.hideLoaging();
       this.alertService.showToast('success','Exito','Inicio de sesion exitosa',4000)
     }).catch((error)=>{
       console.log(error);
       this.alertService.showToast('error','Error',error.message,4000)
     })
+  }
+
+
+
+  registro(){
+    const dialogRef = this.dialog.open(RegistroComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }
