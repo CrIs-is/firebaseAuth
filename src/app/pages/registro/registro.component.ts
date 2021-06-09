@@ -1,7 +1,7 @@
-import { Usuario } from './../../../models/usuario';
+import { Usuario } from '../../core/models/usuario';
 import { Component, OnInit } from '@angular/core';
-import { Form } from '@angular/forms';
-
+import { AuthService } from 'src/app/core/services/auth.service';
+import { ToastService } from 'src/app/core/services/toast.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -9,37 +9,22 @@ import { Form } from '@angular/forms';
 })
 export class RegistroComponent implements OnInit {
 
-  usuario: Usuario;
+  public usuario: Usuario;
 
-  constructor() { }
+  constructor(private authService: AuthService,private alertService: ToastService) { }
 
   ngOnInit() {
     this.usuario = new Usuario();
-
-    this.usuario.email = 'Cristianatehortua1998@gmail.com'
   }
 
-  registerUser(formulario){
-    console.log(formulario);
-
-    if(formulario.invalid){
-      return ;
-    }
-
-    console.log(formulario.controls.email);
-    console.log("Formulario valido")
+  registerUser(){
+    this.authService.registro(this.usuario).then((res)=>{
+      console.log(res);
+      this.alertService.showToast('success','Exito','El usuario se ha registrado con exito',4000)
+    }).catch((error)=>{
+      console.log(error);
+      this.alertService.showToast('error','Error',error.message,4000)
+    })
   }
-  tiles: Tile[] = [
-    {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 2, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-  ];
 
-}
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
 }

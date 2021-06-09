@@ -1,6 +1,20 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.snotify{
+  width: 400px;
+  height: 100px;
+
+
+}
+.snotifyToast__title{
+  font-size:18px;
+  margin-top: 10px;
+}
+.snotifyToast__body{
+  font-size: 13px;
+}
+
 .card-form{
     height: 100vh;
     position: relative;
