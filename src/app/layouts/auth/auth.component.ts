@@ -3,31 +3,56 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-auth',
   template: `
-   <mat-grid-list cols="9" rowHeight="100vh">
-     <mat-grid-tile colspan="3">
+    <div 
+      fxLayout="row" 
+      fxLayout.lt-sm="row" 
+      fxLayout.lt-xs="row" 
+      fxLayout.lt-md="row" 
+     
+      fxLayoutAlign="start">
+    <ng-container>
+      <div class="forms"
+        fxFlex="40%"
+        fxFlex.md="50%"
+        fxFlex.sm="100%"
+        fxFlex.xs="100%"
+
+      >
       <router-outlet></router-outlet>
-     </mat-grid-tile>
-     <mat-grid-tile colspan="6">
-       <div class="main">
-         <img  src="./assets/images/login_fondo.svg" alt="">
-       </div>
-     </mat-grid-tile>
-   </mat-grid-list>
+      
+    </div>
+      <div style="text-align: center;padding-top: 100x;"
+        fxFlex="60%"
+    
+        fxFlex.md="50%"
+        fxFlex.sm="0%"
+        fxFlex.xs="0%"
+      >
+        <img  src="./assets/images/login_fondo.svg" alt="">
+
+    </div>
+      
+    </ng-container>
+    </div>
+
+    
+      <app-footer></app-footer>
+ 
   `,
   styles: [
-    `
-    .main{
-      text-align:center
+    ` 
+    .forms{
+      padding-top:70px
     }
     img{
-      width:90%;
-      margin:5px auto;
-    }`
+      width:80%;
+      height:100%
+  `
   ]
 })
-export class AuthComponent implements OnInit {
 
-  constructor() { }
+export class AuthComponent implements OnInit {
+   constructor() { }
 
   ngOnInit(): void {
   }

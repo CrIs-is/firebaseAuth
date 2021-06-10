@@ -8,18 +8,22 @@ import { LoginComponent } from 'src/app/pages/login/login.component';
 import { RegistroComponent } from 'src/app/pages/registro/registro.component';
 import { MaterialModule } from 'src/app/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FooterComponent } from 'src/app/components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AuthComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ]
 })
 export class AuthModule { }

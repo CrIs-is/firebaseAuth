@@ -6,14 +6,19 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LoadingService {
 
-  spinner = new BehaviorSubject(false);
+  private spinner = new BehaviorSubject(false);
+
   constructor() { }
 
-  hideLoaging(){
+  get _spinner(){
+    return this.spinner;
+  }
+
+  hideLoaging():void{
     this.spinner.next(false);
   }
 
-  showLoading(){
+  showLoading():void{
     this.spinner.next(true);
   }
 
