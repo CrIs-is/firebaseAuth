@@ -13,7 +13,10 @@ export class AuthService {
 
   registro(usuario: Usuario):Promise<firebase.default.auth.UserCredential>{
     this.loadingService.showLoading();
-    return this.auth.createUserWithEmailAndPassword(usuario.email,usuario.password);
+    return this.auth.createUserWithEmailAndPassword(usuario.email,usuario.password)
+    .finally(()=>{
+      this.loadingService.hideLoaging();
+    });;
   }
 
   login(usuario: Usuario):Promise<firebase.default.auth.UserCredential>{

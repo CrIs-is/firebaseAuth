@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   createForm(){
     this.formulario = new FormGroup({
       email: new FormControl('',[Validators.required,Validators.minLength(7),Validators.email]),
-      password: new FormControl('',[Validators.required,Validators.minLength(7)])
+      password: new FormControl('',[Validators.required,Validators.minLength(6)])
     });
 
     // this.formulario.controls.email.setValue('cristianatehortua1998@gmail.com');
@@ -44,9 +44,8 @@ export class LoginComponent implements OnInit {
 
 
   registro(){
-    const dialogRef = this.dialog.open(RegistroComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    this.dialog.open(RegistroComponent,{
+      width: '600px',
     });
   }
 
