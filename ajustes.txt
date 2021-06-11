@@ -1,0 +1,13 @@
+-validacion que sea mayor de edad
+-validar que el correo no este registrado
+-hacer responsive el stepper
+-sesión con tilde en la o
+-almacenamiento de token e informacion del usuario
+-redirigir al home despues de loguearse
+-proteger rutas
+-confirmacion de correo electronico
+-recuperación de contraseña
+-diseño del home
+-home responsive
+-diagrama de la base de datos
+-tour por la app
