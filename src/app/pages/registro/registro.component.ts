@@ -1,16 +1,16 @@
-import { Usuario } from '../../core/models/usuario';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { ToastService } from 'src/app/core/services/utilities/toast.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormValidate } from 'src/app/core/models/formValidate';
-@Component({
+  @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent implements OnInit {
-  isLinear = true;
+export class RegistroComponent implements OnInit , AfterViewInit{
+
+   isLinear = true;
   formInfoUsuario: FormGroup;
   formUtenticacion: FormGroup;
   isEditable = false;
@@ -21,7 +21,13 @@ export class RegistroComponent implements OnInit {
     {nombre:'Otro',value:'Otro'},
   ]
 
-  constructor(private authService: AuthService,private alertService: ToastService,private _formBuilder: FormBuilder) { }
+  constructor(private authService: AuthService,private alertService: ToastService,
+  private _formBuilder: FormBuilder ) {
+     
+  }
+
+  ngAfterViewInit(): void {     
+  }
 
   ngOnInit() {
     this.formInfoUsuario = this._formBuilder.group({

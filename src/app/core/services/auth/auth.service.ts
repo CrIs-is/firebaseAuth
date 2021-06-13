@@ -8,7 +8,14 @@ import { LoadingService } from '../utilities/loading.service';
 })
 export class AuthService {
 
-  constructor(public auth: AngularFireAuth,private loadingService:LoadingService) { }
+  token: string | null;
+  user: firebase.default.User | null;
+  
+
+  constructor(public auth: AngularFireAuth,private loadingService:LoadingService) {
+    this.token = this.getToken();
+    this.user = this.getUser();
+  }
 
 
   registro(usuario: Usuario):Promise<firebase.default.auth.UserCredential>{
@@ -26,5 +33,26 @@ export class AuthService {
       this.loadingService.hideLoaging();
     });
   }
+
+  setUser(user: firebase.default.User){
+    this.user = user;
+    localStorage.setItem('user',JSON.stringify(this.user));
+    this.setToken();
+  }
+
+  async setToken(){
+    this.token = await this.user.getIdToken();
+    localStorage.setItem('token',this.token);
+  }
+
+  getUser(){
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
+  getToken(): string{
+    return localStorage.getItem('token');
+  }
+
+
 
 }
