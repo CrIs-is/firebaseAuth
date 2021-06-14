@@ -34,10 +34,10 @@ export class AuthService {
     });
   }
 
-  setUser(user: firebase.default.User){
+  async setUser(user: firebase.default.User){
     this.user = user;
     localStorage.setItem('user',JSON.stringify(this.user));
-    this.setToken();
+    await this.setToken();
   }
 
   async setToken(){

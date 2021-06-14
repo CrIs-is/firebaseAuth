@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class UserComponent implements OnInit {
+export class MainComponent implements OnInit {
 
   constructor() { }
 

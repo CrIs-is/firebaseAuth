@@ -36,7 +36,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
 
     
-      <app-footer></app-footer>
+    <app-footer></app-footer>
  
   `,
   styles: [

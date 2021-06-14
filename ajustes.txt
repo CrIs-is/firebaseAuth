@@ -4,7 +4,7 @@
 -sesión con tilde en la o ---->LISTA
 -almacenamiento de token e informacion del usuario -----------> LISTA
 -redirigir al home despues de loguearse ------------>LISTA
--proteger rutas
+-proteger rutas ------------->LISTA
 -confirmacion de correo electronico
 -recuperación de contraseña
 -diseño del home
