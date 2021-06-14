@@ -1,1 +1,41 @@
-<p>navbar works!</p>
+<mat-toolbar  color="primary">
+    <span>
+        <a href="">
+            <img src="./assets/images/logo_nav.png" alt="" width="60px">
+        </a>
+    </span>
+    
+    <span>FreshChat</span>
+    <span class="example-spacer"></span>
+    <span class="example-spacer"></span>
+    <span style="padding-top: 8px;padding-right: 10px;">
+        <img src="./assets/images/profile.jpg" alt="" width="40px" style="border-radius: 50%;">
+    </span>
+    <h6>Cristian atehortua</h6>
+    <button mat-icon-button  aria-label="notification" >
+        <mat-icon class="example-icon">search</mat-icon>
+    </button>
+    <button mat-icon-button  aria-label="notification" >
+        <mat-icon matBadge="5" matBadgeColor="warn" class="example-icon">chat</mat-icon>
+    </button>
+     <button mat-icon-button  aria-label="notification" >
+        <mat-icon matBadge="5" matBadgeColor="warn" class="example-icon">notifications</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="options">
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>account_circle</mat-icon>
+          <span>Ver perfil</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>people</mat-icon>
+          <span>Ver amigos</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          <span>Cerrar sesión</span>
+        </button>
+      </mat-menu>
+  </mat-toolbar>

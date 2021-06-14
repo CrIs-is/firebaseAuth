@@ -11,3 +11,5 @@
 -home responsive
 -diagrama de la base de datos
 -tour por la app
+-recordar usuario
+-logout
