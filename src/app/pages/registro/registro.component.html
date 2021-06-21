@@ -51,6 +51,9 @@
                         && formInfoUsuario.controls.fechaNacimiento.hasError('required')">
                           El formato de la Fecha es <strong>invalido</strong>
                         </mat-error>
+                        <mat-error *ngIf="!formInfoUsuario.controls.fechaNacimiento.hasError('required') &&formInfoUsuario.controls.fechaNacimiento.hasError('esMenor')">
+                          Usted no cumple con la edad para el registro <strong>es menor a 18</strong>
+                        </mat-error>
                       </mat-form-field>
                 </mat-grid-tile>
 

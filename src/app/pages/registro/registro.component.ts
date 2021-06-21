@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { ToastService } from 'src/app/core/services/utilities/toast.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,9 +8,9 @@ import { FormValidate } from 'src/app/core/models/formValidate';
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent implements OnInit , AfterViewInit{
+export class RegistroComponent implements OnInit{
 
-   isLinear = true;
+  isLinear = true;
   formInfoUsuario: FormGroup;
   formUtenticacion: FormGroup;
   isEditable = false;
@@ -26,15 +26,12 @@ export class RegistroComponent implements OnInit , AfterViewInit{
      
   }
 
-  ngAfterViewInit(): void {     
-  }
-
   ngOnInit() {
-    this.formInfoUsuario = this._formBuilder.group({
+      this.formInfoUsuario = this._formBuilder.group({
       nombre: ['', [Validators.required,Validators.minLength(2)]],
       apellido: ['', [Validators.required,Validators.minLength(2)]],
       sexo: ['', Validators.required],
-      fechaNacimiento: ['', Validators.required],
+      fechaNacimiento: ['',[ Validators.required,FormValidate.esMayorDeEdad]],
     });
     this.formUtenticacion = this._formBuilder.group({
       email: ['',[ Validators.required,Validators.minLength(6),Validators.email]],
@@ -53,9 +50,4 @@ export class RegistroComponent implements OnInit , AfterViewInit{
       this.alertService.showToast('error','Error',error.message,4000)
     })
   }
-
-  sendForm(){
-    
-  }
-
 }

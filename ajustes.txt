@@ -1,4 +1,4 @@
--validacion que sea mayor de edad
+-validacion que sea mayor de edad ------------> LISTA
 -validar que el correo no este registrado
 -hacer responsive el stepper ------>LISTA PARCIALMENTE(CAMBIO A MAT-VERTICAL-STEPPER PAR MANTENER TEXTOS)
 -sesión con tilde en la o ---->LISTA
