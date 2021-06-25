@@ -10,12 +10,14 @@ import { MaterialModule } from 'src/app/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/components/shared/shared.module';
+import { RecuperarPasswordComponent } from 'src/app/pages/recuperar-password/recuperar-password.component';
 
 @NgModule({
   declarations: [
     AuthComponent,
     LoginComponent,
     RegistroComponent,
+    RecuperarPasswordComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { SharedModule } from 'src/app/components/shared/shared.module';
     MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    
   ]
 })
 export class AuthModule { }

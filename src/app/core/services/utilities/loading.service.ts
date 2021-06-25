@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LoadingService {
 
-  private spinner = new BehaviorSubject(false);
+  private spinner = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 

@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatProgressBar } from '@angular/material/progress-bar';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
 import { LoadingService } from './core/services/utilities/loading.service';
  @Component({
   selector: 'app-root',
@@ -9,9 +10,10 @@ import { LoadingService } from './core/services/utilities/loading.service';
     #progress>
   </mat-progress-bar>
   <ng-snotify></ng-snotify>
-  <router-outlet></router-outlet>
+    <router-outlet ></router-outlet>
   `,
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+ 
 })
 export class AppComponent {
   
@@ -19,10 +21,33 @@ export class AppComponent {
 
   loading = false;
 
-  constructor(public loadingService: LoadingService){
+  constructor(public loadingService: LoadingService,private router: Router){
+
     this.loadingService._spinner.subscribe((data)=>{
       this.loading = data
     });
+
+    this.router.events.pipe(
+    ).subscribe((event: RouterEvent) => {
+      switch (true) {
+        case event instanceof NavigationStart: {
+          this.loadingService.showLoading();
+          break;
+        }
+        case event instanceof NavigationEnd:
+        case event instanceof NavigationCancel:
+        case event instanceof NavigationError: {
+          setTimeout(()=>{
+            this.loadingService.hideLoaging();
+          },500)
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    });
   }
+ 
 }
 

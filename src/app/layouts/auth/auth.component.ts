@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +19,7 @@ import { Component, OnInit } from '@angular/core';
         fxFlex.md="50%"
         fxFlex.sm="100%"
         fxFlex.xs="100%"
-
+        
       >
       <router-outlet></router-outlet>
       
@@ -28,7 +31,7 @@ import { Component, OnInit } from '@angular/core';
         fxFlex.sm="0%"
         fxFlex.xs="0%"
       >
-        <img  src="./assets/images/login_fondo.svg" alt="">
+        <img  [src]="urlImagen" alt="imagen">
 
     </div>
       
@@ -47,14 +50,38 @@ import { Component, OnInit } from '@angular/core';
     img{
       width:80%;
       height:100%
+    }
+
   `
   ]
 })
 
-export class AuthComponent implements OnInit {
-   constructor() { }
+export class AuthComponent implements OnInit{
 
-  ngOnInit(): void {
+
+  urlImagen = '';
+  constructor(private route: Router) {
+   if( route.url == '/login'){
+      this.urlImagen = './assets/images/login_fondo.svg' ;
+    } else{
+      this.urlImagen = './assets/images/recuperar-contrasena.svg';
+    }
   }
 
+
+  ngOnInit(): void {
+    this.route.events.pipe(
+      filter((res:any)=>{
+        return res instanceof NavigationStart;
+      })
+    ).subscribe((res:NavigationStart )=>{
+      if(res.url == '/login'){
+        this.urlImagen = './assets/images/login_fondo.svg';
+      }else{
+        this.urlImagen = './assets/images/recuperar-contrasena.svg';
+      }
+    })
+  }
+
+ 
 }
