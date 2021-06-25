@@ -64,7 +64,10 @@ export class AuthService {
 
   //recuperar contraseña
   resetPassword(email: string): Promise<void> {
-    return this.auth.sendPasswordResetEmail(email);
+    this.loadingService.showLoading();
+    return this.auth.sendPasswordResetEmail(email).finally(()=>{
+      this.loadingService.hideLoaging();
+    });;
   }
 
   //Verificar email
@@ -75,7 +78,10 @@ export class AuthService {
 
   //Cerrar sesion
   signOut(): Promise<void> {
-    return this.auth.signOut();
+    this.loadingService.showLoading();
+    return this.auth.signOut().finally(()=>{
+      this.loadingService.hideLoaging();
+    });
   }
 
 

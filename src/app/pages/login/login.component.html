@@ -1,4 +1,4 @@
-<div class="card-form">
+<div class="card-form animate__animated animate__fadeInLeft">
     
     <div class="contenido-form">
 
@@ -47,16 +47,14 @@
         <br>
 
         <mat-card-actions>
-            <div>
-                <mat-checkbox color="primary">Recordar usuario</mat-checkbox>
-            </div>
-            <mat-grid-list cols="4" rowHeight="50px">
+          
+            <mat-grid-list cols="4" rowHeight="10px">
                
-                <mat-grid-tile colspan="4" rowspan="2">
+                <mat-grid-tile colspan="4" rowspan="8">
                     <button (click)="loginUser()" class="button-login" mat-raised-button color="primary" [disabled]="formulario.invalid">Ingresar</button>
                 </mat-grid-tile>
 
-                <mat-grid-tile colspan="4" rowspan="0.7">
+                <mat-grid-tile colspan="4" rowspan="4">
                     <a routerLink="/recuperar-password">
                         ¿Has olvidado tu contraseña?
                     </a>

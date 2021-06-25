@@ -19,19 +19,17 @@ import { filter } from 'rxjs/operators';
         fxFlex.md="50%"
         fxFlex.sm="100%"
         fxFlex.xs="100%"
-        
       >
       <router-outlet></router-outlet>
       
     </div>
       <div style="text-align: center;padding-top: 100x;"
         fxFlex="60%"
-    
         fxFlex.md="50%"
         fxFlex.sm="0%"
         fxFlex.xs="0%"
       >
-        <img  [src]="urlImagen" alt="imagen">
+        <img class="animate__animated animate__fadeInLeft"  [src]="urlImagen" alt="imagen">
 
     </div>
       
