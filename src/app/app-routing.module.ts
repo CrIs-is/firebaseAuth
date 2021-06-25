@@ -6,12 +6,12 @@ const routes: Routes = [
   
   {
     path:'',
-    canActivate:[AuthGuard],
+    canActivate:[],
     loadChildren:() => import('./layouts/auth/auth.module').then(m => m.AuthModule)
   },
   {
     path:'',
-    canActivate:[AuthGuard],
+    canActivate:[],
     loadChildren:() => import('./layouts/main/main.module').then(m => m.MainModule)
   },
   {
